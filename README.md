@@ -1,3 +1,6 @@
+### Please check the Wiki [here](https://github.com/splunkzilla/Splunk_TA_fit/wiki) for more info on version 2!
+***
+
 ## ![Splunk Fit Icon](/../master/static/fiticon.png?raw=true "Splunk Fit Icon")&nbsp;&nbsp;Splunk Add-on for Fitbit v1.0
 
 **Description:** Monitor IOT data from Fitbit devices to provide necessary data to analyze trends in health and activity performance over time in the **Splunk Fit** app.
