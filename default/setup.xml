@@ -19,7 +19,7 @@
       </input>
 
       <input field="REDIRECT_URI" endpoint="fitbit/fitbitsetup" entity="Authentication">
-        <label>Access/Refresh Token Request URI:</label>
+        <label>Callback URI:</label>
         <type>text</type>
       </input>
 

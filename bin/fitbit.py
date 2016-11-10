@@ -12,6 +12,9 @@ Most of the code has been adapted from: https://groups.google.com/group/fitbit-a
 import sys, os, base64
 import datetime as dt
 import ConfigParser
+import requests, urllib
+import cherrypy, threading
+import json
 
 # Setup Splunk Environment
 APPNAME = 'Splunk_TA_fit'
@@ -26,17 +29,6 @@ for filename in os.listdir(EGG_DIR):
     if filename.endswith(".egg"):
         sys.path.append(EGG_DIR + filename)
 
-
-import requests, urllib
-import cherrypy, threading
-import json
-
-
-# Setup Splunk Environment
-APPNAME = 'Splunk_TA_fit'
-CONFIG = 'appconfig.conf'
-SPLUNK_HOME = os.environ['SPLUNK_HOME']
-TOKEN_CONFIG = '/bin/user_settings.txt'
 
 tokenfile = SPLUNK_HOME + '/etc/apps/' + APPNAME + TOKEN_CONFIG
 
