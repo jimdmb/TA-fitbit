@@ -19,7 +19,7 @@
       </input>
 
       <input field="REDIRECT_URI" endpoint="fitbit/fitbitsetup" entity="Authentication">
-        <label>Callback URI:</label>
+        <label>Callback URI (http://127.0.0.1:8080):</label>
         <type>text</type>
       </input>
 

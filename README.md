@@ -5,21 +5,25 @@
 
 **Description:** Monitor IOT data from Fitbit devices to provide necessary data to analyze trends in health and activity performance over time in the **Splunk Fit** app.
 
-**Authors:** Ramik Chopra and Justin Boucher. Copyright (C) 2016 Ramik Chopra and Justin Boucher.
+**Author:** Justin Boucher.
 
 *__NOTE:__ Uses heavily modified version of magnific0's Fitbit classes'. The magnific0 project is at [this link](https://github.com/magnific0/FitBit.py)*
 
 ## Supported Source types:
 + Fit:Activity
-+ Fit:BodyFat _(Forthcoming. See ToDo)_
 + Fit:FoodLogging _(Includes Water Logs)_
 + Fit:HeartRate
 + Fit:Sleep
 + Fit:User
++ Fit:Body _(Compliments of [noisufnoc](https://github.com/noisufnoc))_
++ Fit:BodyGoals _(Compliments of [noisufnoc](https://github.com/noisufnoc))_
 
 ## Supported Devices:
++ Fitbit Flex
++ Fitbit Alto
 + Fitbit Charge
 + Fitbit ChargeHR
++ Fitbit ChargeHR2
 + Fitbit Surge
 + Fitbit Aria
 
@@ -31,13 +35,11 @@
 - /bin/*&lt;endpoint type&gt;*.py - Worker files for ingesting different data sources from Fitbit
 
 ## Requirements
-- Python Requests - Egg file provided
+- Python Requests2 - Egg file provided
 - CherryPy - Currently there is an issue loading this module dynamically. Please see the Issues tab for more information and a workaround.
 
 #### ToDo
 - Add advanced config to setup
-- Add more Sleep information. Currently sleep functionality is configured for OAuth version 1, and Fitbit has not provided OAuth2 version stats as of yet. Basic stats are the only available stats right now.
-- Add BodyFat information. Same problem as Sleep functionality right now. Additionally no Aria has been provided to test at this point.
 - Fix CherryPy module issue
 
 ## Installation Instructions
