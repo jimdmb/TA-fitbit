@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### Please check the Wiki [here](https://github.com/splunkzilla/TA-fitbit/wiki) for more info on version 2!
 ***
 
@@ -96,3 +97,7 @@ This TA will create a standard index called __fit__ inside your indexer(s). The 
 ---
 
 *Fitbit is a registered trademark and service mark of Fitbit, Inc. Fitbit Technology Add-on for Splunk® is designed for use with the Fitbit platform. This product is not put out by Fitbit, and Fitbit does not service or warrant the functionality of this product.* ![Fitbit Icon](/../master/static/FitbitLogo.png?raw=true "Fitbit Icon")
+=======
+# TA-fitbit
+Collect IOT data from Fitbit devices in Splunk to analyze trends in health and activity performance.
+>>>>>>> b683d697d9b45cfabb56fe973a6ebfa3127fb321
