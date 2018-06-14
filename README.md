@@ -6,14 +6,21 @@
        Original Author: Justin Boucher
        Current Author: Patrick O'Connell
        Version/Date: 3.0.0 / June 14, 2018
-       Sourcetype: XmlWinEventLog:Microsoft-Windows-Windows Defender/Operational
+       Sourcetype: Fit:Activity
+       Sourcetype: Fit:HR
+       Sourcetype: Fit:FoodLogging
+       Sourcetype: Fit:Sleep
+       Sourcetype: Fit:User
+       Sourcetype: Fit:Body
+       Sourcetype: Fit:BodyGoals
        Has index-time ops: false
 
 # Update History
        3.0.0 June 14, 2018
        --------
-       Took ownership from Justin Boucher, who was no longer interested in maintaining this. There may be a number of outstanding issues as
-       this hasn't been updated in some time. Please send in any found issues. 
+       Took ownership from Justin Boucher, who was no longer interested in maintaining 
+       this. There may be a number of outstanding issues as this hasn't been updated 
+       in some time. Please send in any found issues. 
 
 *__NOTE:__ Uses heavily modified version of magnific0's Fitbit classes'. The magnific0 project is at [this link](https://github.com/magnific0/FitBit.py)*
 
