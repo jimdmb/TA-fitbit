@@ -65,7 +65,7 @@ class ConfigApp(admin.MConfigHandler):
       self.callerArgs.data['C_SECRET'][0] = '1234567890abcefgh1234567890abcdef'
 
     if self.callerArgs.data['REDIRECT_URI'][0] in [None, '']:
-      self.callerArgs.data['REDIRECT_URI'][0] = 'http://127.0.0.1:8080'
+      self.callerArgs.data['REDIRECT_URI'][0] = 'http://192.168.1.23:8080'
 
 
     '''

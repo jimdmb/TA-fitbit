@@ -17,12 +17,12 @@ import cherrypy, threading
 import json
 
 # Setup Splunk Environment
-APPNAME = 'Splunk_TA_fit'
+APPNAME = 'TA-fitbit'
 CONFIG = 'appconfig.conf'
 SPLUNK_HOME = os.environ['SPLUNK_HOME']
 TOKEN_CONFIG = '/bin/user_settings.txt'
 
-#dynamically load in any eggs in /etc/apps/Splunk_TA_fit/bin
+#dynamically load in any eggs in /etc/apps/TA-fitbit/bin
 EGG_DIR = SPLUNK_HOME + "/etc/apps/" + APPNAME + "/bin/"
 
 for filename in os.listdir(EGG_DIR):

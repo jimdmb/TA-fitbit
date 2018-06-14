@@ -6,7 +6,8 @@ Currently in Beta version. Email me to get instructions on
 usage. I need to automate process still. - JB
 '''
 
-import os, fitbit, json
+import os, fitbit, json, sys
+sys.path.insert(0, os.path.dirname(__file__))
 import cherrypy
 import webbrowser
 #import requests.packages.urllib3
@@ -15,7 +16,7 @@ import webbrowser
 
 
 # Setup Splunk Environment
-APPNAME = 'Splunk_TA_fit'
+APPNAME = 'TA-fitbit'
 CONFIG = '/bin/user_settings.txt'
 SPLUNK_HOME = os.environ['SPLUNK_HOME']
 
@@ -30,6 +31,7 @@ except IOError:
     # If not generate a new file
     # Get the authorization URL for user to complete in browser.
     auth_url = fit.GetAuthorizationUri()
+    print 'auth_url: ' + str(auth_url)
     webbrowser.open(auth_url)
     cherrypy.quickstart(fit)
     # Set the access code that is part of the arguments of the callback URL FitBit redirects to.
