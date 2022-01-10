@@ -19,4 +19,4 @@ weight['goal']['fat'] = fat['goal']['fat']
 # Get response and send to STDOUT for Splunk ingestion
 goals = json.dumps(weight)
 
-print goals
+print (goals)

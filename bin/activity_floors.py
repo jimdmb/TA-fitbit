@@ -32,4 +32,4 @@ floors = fit.ApiCall(token, api_str)
 # Get response and send to STDOUT for Splunk ingestion
 floors = json.dumps(floors)
 
-print floors
+print (floors)

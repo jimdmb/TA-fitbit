@@ -11,7 +11,7 @@ Most of the code has been adapted from: https://groups.google.com/group/fitbit-a
 """
 import sys, os, base64
 import datetime as dt
-import ConfigParser
+import configparser
 import requests, urllib
 import cherrypy, threading
 import json
@@ -32,7 +32,7 @@ for filename in os.listdir(EGG_DIR):
 
 tokenfile = SPLUNK_HOME + '/etc/apps/' + APPNAME + TOKEN_CONFIG
 
-parser = ConfigParser.SafeConfigParser()
+parser = configparser.ConfigParser()
 
 class Fitbit():
 
@@ -66,7 +66,8 @@ class Fitbit():
             'client_id': self.CLIENT_ID,
             'response_type':  'code',
             'scope': ' '.join(self.API_SCOPES),
-            'redirect_uri': self.REDIRECT_URI
+            'redirect_uri': self.REDIRECT_URI,
+            "expires_in": 3600
         }
 
         # Encode parameters and construct authorization url to be returned to user.
@@ -75,11 +76,15 @@ class Fitbit():
 
     # Tokes are requested based on access code. Access code must be fresh (10 minutes)
     def GetAccessToken(self, access_code):
-
+        
         # Construct the authentication header
-        auth_header = base64.b64encode(self.CLIENT_ID + ':' + self.CLIENT_SECRET)
+        credentials = self.CLIENT_ID + ':' + self.CLIENT_SECRET
+        credentials_bytes = credentials.encode('ascii')
+        b64_credentials_bytes = base64.b64encode(credentials_bytes)
+        b64_credentials = b64_credentials_bytes.decode('ascii')
+        #auth_header = base64.b64encode(self.CLIENT_ID + ':' + self.CLIENT_SECRET)
         headers = {
-            'Authorization': 'Basic %s' % auth_header,
+            'Authorization': 'Basic %s' % b64_credentials,
             'Content-Type' : 'application/x-www-form-urlencoded'
         }
 
@@ -110,16 +115,21 @@ class Fitbit():
     def RefAccessToken(self, token):
 
         # Construct the authentication header
-        auth_header = base64.b64encode(self.CLIENT_ID + ':' + self.CLIENT_SECRET)
+        credentials = self.CLIENT_ID + ':' + self.CLIENT_SECRET
+        credentials_bytes = credentials.encode('ascii')
+        b64_credentials_bytes = base64.b64encode(credentials_bytes)
+        b64_credentials = b64_credentials_bytes.decode('ascii')
+        #auth_header = base64.b64encode(self.CLIENT_ID + ':' + self.CLIENT_SECRET)
         headers = {
-            'Authorization': 'Basic %s' % auth_header,
+            'Authorization': 'Basic %s' % b64_credentials,
             'Content-Type' : 'application/x-www-form-urlencoded'
         }
 
         # Set up parameters for refresh request
         params = {
             'grant_type': 'refresh_token',
-            'refresh_token': token['refresh_token']
+            'refresh_token': token['refresh_token'],
+            "expires_in": 3600
         }
 
         # Place request
@@ -189,9 +199,9 @@ class Fitbit():
         try:
             token = json.load(open(tokenfile))
         except IOError:
-            print "Error retrieving access token. Please rerun provided access_generator.py!"
+            print ("Error retrieving access token. Please rerun provided access_generator.py!")
             auth_url = fit.GetAuthorizationUri()
-            print "Please visit the link below and approve the app:\n %s" % auth_url
+            print ("Please visit the link below and approve the app:\n %s" % auth_url)
             # Set the access code that is part of the arguments of the callback URL FitBit redirects to.
             access_code = raw_input("Please enter code (from the URL you were redirected to): ")
             # Use the temporary access code to obtain a more permanent pair of tokens
