@@ -32,4 +32,4 @@ elevation = fit.ApiCall(token, api_str)
 # Get response and send to STDOUT for Splunk ingestion
 elevation = json.dumps(elevation)
 
-print elevation
+print (elevation)

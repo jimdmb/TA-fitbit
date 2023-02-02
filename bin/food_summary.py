@@ -13,4 +13,4 @@ summary = fit.ApiCall(token, '/1/user/-/foods/log/date/today.json')
 # Get response and send to STDOUT for Splunk ingestion
 summary = json.dumps(summary)
 
-print summary
+print (summary)

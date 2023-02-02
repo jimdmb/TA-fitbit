@@ -13,4 +13,4 @@ profile = fit.ApiCall(token, '/1/user/-/profile.json')
 # Get response and send to STDOUT for Splunk ingestion
 profile = json.dumps(profile)
 
-print profile
+print (profile)

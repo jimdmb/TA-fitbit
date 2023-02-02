@@ -32,4 +32,4 @@ steps = fit.ApiCall(token, api_str)
 # Get response and send to STDOUT for Splunk ingestion
 steps = json.dumps(steps)
 
-print steps
+print (steps)

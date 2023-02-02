@@ -32,4 +32,4 @@ calories = fit.ApiCall(token, api_str)
 # Get response and send to STDOUT for Splunk ingestion
 calories = json.dumps(calories)
 
-print calories
+print (calories)

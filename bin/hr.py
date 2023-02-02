@@ -24,7 +24,7 @@ start_time = time_series['START']
 end_time = time_series['END']
 
 # Concatenate API str to include time series information
-api_str = '/1/user/-/activities/heart/date/today/' + date_interval + '/' + time_interval + '/time/' + start_time + '/' + end_time + '.json'
+api_str = '/1/user/-/activities/heart/date/' + date_interval + '/' + time_interval + '/time/' + start_time + '/' + end_time + '.json'
 
 # Send data request to Fitbit
 hr = fit.ApiCall(token, api_str)
@@ -32,4 +32,4 @@ hr = fit.ApiCall(token, api_str)
 # Get response and send to STDOUT for Splunk ingestion
 hr = json.dumps(hr)
 
-print hr
+print (hr)

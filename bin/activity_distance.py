@@ -32,4 +32,4 @@ distance = fit.ApiCall(token, api_str)
 # Get response and send to STDOUT for Splunk ingestion
 distance = json.dumps(distance)
 
-print distance
+print (distance)

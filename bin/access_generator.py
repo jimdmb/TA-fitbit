@@ -31,7 +31,7 @@ except IOError:
     # If not generate a new file
     # Get the authorization URL for user to complete in browser.
     auth_url = fit.GetAuthorizationUri()
-    print 'auth_url: ' + str(auth_url)
+    print ('auth_url: ' + str(auth_url))
     webbrowser.open(auth_url)
     cherrypy.quickstart(fit)
     # Set the access code that is part of the arguments of the callback URL FitBit redirects to.
@@ -43,11 +43,10 @@ except IOError:
 
 # Sample API call
 response = fit.ApiCall(token, '/1/user/-/profile.json')
-
 # Token is part of the response. Note that the token pair can change when a refresh is necessary.
 # So we replace the current token with the response one and save it.
 token = response['token']
 json.dump(token, open(tokenfile,'w'))
 
 # Do something with the response
-print "Welcome %s, your Fitbit account is now connected!" % response['user']['displayName']
+print ("Welcome %s, your Fitbit account is now connected!" % response['user']['displayName'])
